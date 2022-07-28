@@ -56,7 +56,12 @@
         });
         var receiver = "";
         // create websocket
-        var socket = new WebSocket("ws://127.0.0.1:8000/api/chat");
+        hostname = `${location.hostname}`
+        if (location.port) {
+          hostname += `:${location.port}`
+        }
+        console.log(hostname)
+        var socket = new WebSocket(`ws://${hostname}/api/chat`);
         socket.onmessage = function (event) {
           var parent = $("#messages");
           var data = JSON.parse(event.data);
