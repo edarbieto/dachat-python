@@ -61,7 +61,7 @@
           hostname += `:${location.port}`
         }
         console.log(hostname)
-        var socket = new WebSocket(`ws://${hostname}/api/chat`);
+        var socket = new WebSocket(`wss://${hostname}/api/chat`);
         socket.onmessage = function (event) {
           var parent = $("#messages");
           var data = JSON.parse(event.data);
